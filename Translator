@@ -14,14 +14,17 @@ while True:
 
     elif C == 1:
         x = input("Enter MORSE to translate (must have spaces between whole letters) : ")
-        l = x.split()
+        l = x.split('  ')
         s = ''
         for i in l:
-            for j in morseBase:
-                if i == j[1]:
-                    s += j[0]
+            y = i.split()
+            for k in y:
+                for j in morseBase:
+                    if k == j[1]:
+                        s += j[0]
             s += ' '
         print(s)
+
 
     elif C == 2:
         x = input("Enter ENGLISH to translate (must have spaces between words) : ")

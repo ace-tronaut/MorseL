@@ -5,21 +5,7 @@ import os
 import sys
 import time
 #print("WELCOME TO morseL!")
-print("                                                   ███╗   ███╗ ██████╗ ██████╗ ███████╗███████╗██╗     ")
-print("                                                   ████╗ ████║██╔═══██╗██╔══██╗██╔════╝██╔════╝██║     ")
-print("                                                   ██╔████╔██║██║   ██║██████╔╝███████╗█████╗  ██║     ")
-print("                                                   ██║╚██╔╝██║██║   ██║██╔══██╗╚════██║██╔══╝  ██║     ")
-print("                                                   ██║ ╚═╝ ██║╚██████╔╝██║  ██║███████║███████╗███████╗")
-print("                                                   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝")
-
-print("                                                       /██      ")
-print("                                                      | ██      ")
-print(" /██████/████   /██████   /██████   /███████  /██████ | ██      ")
-print("| ██_  ██_  ██ /██__  ██ /██__  ██ /██_____/ /██__  ██| ██      ")
-print("| ██ \ ██ \ ██| ██  \ ██| ██  \__/|  ██████ | ████████| ██      ")
-print("| ██ | ██ | ██| ██  | ██| ██       \____  ██| ██_____/| ██      ")
-print("| ██ | ██ | ██|  ██████/| ██       /███████/|  ███████| ████████")
-print("|__/ |__/ |__/ \______/ |__/      |_______/  \_______/|________/")
+print("                                                       /██      \n                                                      | ██      \n /██████/████   /██████   /██████   /███████  /██████ | ██      \n| ██_  ██_  ██ /██__  ██ /██__  ██ /██_____/ /██__  ██| ██      \n| ██ \ ██ \ ██| ██  \ ██| ██  \__/|  ██████ | ████████| ██      \n| ██ | ██ | ██| ██  | ██| ██       \____  ██| ██_____/| ██      \n| ██ | ██ | ██|  ██████/| ██       /███████/|  ███████| ████████\n|__/ |__/ |__/ \______/ |__/      |_______/  \_______/|________/")
 
 print()
 e = ("The best Morse code trainer!")
@@ -32,9 +18,7 @@ print()
 time.sleep(1)
 print(180 * "-")
 time.sleep(2)
-Mrse = (
-    "Morse code; developed by Samuel Morse is an intricately designed system of letters which can be communicated through dots and dashes hence it can be delivered through a variety of mediums adding to it's versatility and usefulness."
-)
+Mrse = ("\nMorse code; developed by Samuel Morse is an intricately designed system of letters which can be communicated through dots and dashes hence it can be delivered through a variety of mediums adding to it's versatility and usefulness.")
 for i in Mrse:
     sys.stdout.write(i)
     sys.stdout.flush()

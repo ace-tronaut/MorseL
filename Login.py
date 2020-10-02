@@ -30,12 +30,9 @@ def newUser():
 
 def returnUser(a, b):
     #this ALSO needs the SQL integration and building of SQL database
-    y = cred() #
-    global a, b, tracker
-    
+    y = cred() 
+    global a, b, tracker    
     return y
-
-    pass
 
 def login():
     while True:
@@ -64,6 +61,7 @@ def login():
 
                 if x == True:
                     traineR(a,b, tracker)
+                    break
             
             else:
                 passError = ("You have incorrectly input your password 5 times. \nTry again later. \n\n")

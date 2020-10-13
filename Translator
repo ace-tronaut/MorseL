@@ -1,41 +1,49 @@
+import csv
+histCount = 0
 #Declare morseBase
 morseBase = [['A','.-'], ['B','-...'], ['C','-.-.'], ['D','-..'], ['E','.'], ['F','..-.'], ['G','--.'], ['H','....'], ['I','..'], ['J','.---'], ['K','-.-'], ['L','.-..'], ['M','--'], ['N','-.'], ['O','---'], ['P','.--.'], ['Q','--.-'], ['R','.-.'], ['S','...'], ['T','-'], ['U','..-'], ['V','...-'], ['W','.--'], ['X','-..-'], ['Y','-.--'], ['Z','--..']]
-
-while True:
-    #Options to translate 
-    print("Select mode of translation:")
-    print("[1] From MORSE to ENGLISH")
-    print("[2] From ENGLISH to MORSE")
-    print("[0] EXIT Translator")
-    C = int(input("Enter your choice using the number next to it: "))
-
-    if C == 0:
-        break
-
-    elif C == 1:
-        x = input("Enter MORSE to translate (must have spaces between whole letters) : ")
-        l = x.split('  ')
-        s = ''
-        for i in l:
-            y = i.split()
-            for k in y:
-                for j in morseBase:
-                    if k == j[1]:
-                        s += j[0]
-            s += ' '
-        print(s)
-
-
-    elif C == 2:
-        x = input("Enter ENGLISH to translate (must have spaces between words) : ")
-        x = x.upper()
-        l = x.split()
-        s = ''
-        for i in l:
-            for k in i:
-                for j in morseBase:
-                    if k == j[0]:
-                        s += j[1]
+with open ("mainFile.csv", "r", newline = " ") as f:
+    wr = csv.writer(f)
+    wr.writerow(["S.no", "Word", "Morse Code"])
+    while True:
+        #Options to translate 
+        print("Select mode of translation:")
+        print("[1] From MORSE to ENGLISH")
+        print("[2] From ENGLISH to MORSE")
+        print("[0] EXIT Translator")
+        C = int(input("Enter your choice using the number next to it: "))
+    
+        if C == 0:
+            break
+    
+        elif C == 1:
+            x = input("Enter MORSE to translate (must have spaces between whole letters) : ")
+            l = x.split('  ')
+            s = ''
+            for i in l:
+                y = i.split()
+                for k in y:
+                    for j in morseBase:
+                        if k == j[1]:
+                            s += j[0]
                 s += ' '
-            s += '  '
-        print(s)
+            print(s)
+            histCount+=1
+            wr.writerow([histCount, s, x])
+    
+    
+        elif C == 2:
+            x = input("Enter ENGLISH to translate (must have spaces between words) : ")
+            x = x.upper()
+            l = x.split()
+            s = ''
+            for i in l:
+                for k in i:
+                    for j in morseBase:
+                        if k == j[0]:
+                            s += j[1]
+                    s += ' '
+                s += '  '
+            print(s)
+            histCount+=1
+            wr.writerow([histCount, x, s])

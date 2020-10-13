@@ -2,7 +2,7 @@ import csv
 histCount = 0
 #Declare morseBase
 morseBase = [['A','.-'], ['B','-...'], ['C','-.-.'], ['D','-..'], ['E','.'], ['F','..-.'], ['G','--.'], ['H','....'], ['I','..'], ['J','.---'], ['K','-.-'], ['L','.-..'], ['M','--'], ['N','-.'], ['O','---'], ['P','.--.'], ['Q','--.-'], ['R','.-.'], ['S','...'], ['T','-'], ['U','..-'], ['V','...-'], ['W','.--'], ['X','-..-'], ['Y','-.--'], ['Z','--..']]
-with open ("mainFile.csv", "r", newline = " ") as f:
+with open ("mainFile.csv", "w", newline = " ") as f:
     wr = csv.writer(f)
     wr.writerow(["S.no", "Word", "Morse Code"])
     while True:
@@ -10,11 +10,17 @@ with open ("mainFile.csv", "r", newline = " ") as f:
         print("Select mode of translation:")
         print("[1] From MORSE to ENGLISH")
         print("[2] From ENGLISH to MORSE")
+        print()
+        print("Otherwise, go through history")
+        print("[3] Show all past translations")
+        print("[4] Search for n'th translation")
+        print("[5] Find how many times a word has been translated")
         print("[0] EXIT Translator")
         C = int(input("Enter your choice using the number next to it: "))
     
         if C == 0:
             break
+    
     
         elif C == 1:
             x = input("Enter MORSE to translate (must have spaces between whole letters) : ")
@@ -47,3 +53,38 @@ with open ("mainFile.csv", "r", newline = " ") as f:
             print(s)
             histCount+=1
             wr.writerow([histCount, x, s])
+            
+        elif C == 3:
+            with open ("mainFile.csv", "r") as d:
+                r=csv.reader(d)
+                for i in r:
+                    print(i)
+                    
+        elif C == 4:
+            with open ("mainFile.csv", "r") as d:
+                r=csv.reader(d)
+                s=int(input("Enter n'th Number: "))
+                f=0
+                next(r)
+                for i in r:
+                    if i[0]==s:
+                        f=10
+                        print(i)
+                        print("Found!")
+                        break
+                if f==0:
+                    print("Not found!")
+         
+         
+         elif C == 5:
+            with open ("mainFile.csv", "r") as f:
+                r=csv.reader(d)
+                s=int(input("Enter Word to Search: "))
+                f=0
+                next(r)
+                for i in r:
+                    if i[1] == s:
+                        f+1
+                 print("The word", s, "appears; ", f, "times")
+            
+            
